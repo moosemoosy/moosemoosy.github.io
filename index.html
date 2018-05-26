@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.png">
+  <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,700" rel="stylesheet">
+  <title>Miroskii Wallet</title>
+  <link rel='stylesheet' id='main-css' href='css/main.css' type='text/css' media='all' />
+  <link rel='stylesheet' id='main-css' href='css/custom.css' type='text/css' media='all' />
+  <link rel='stylesheet' id='font-awesome-css' href='css/font-awesome.min.css' type='text/css' media='all' />
+  <script type='text/javascript' src='jquery/jquery-3.2.1.min.js'></script>
+  <script type='text/javascript' src='js/scripts.js'></script>
+  <script type="text/javascript" src="libraries/countdown/countdown.min.js"></script>
+</head>
+
+<body>
+  <header class="header">
+    <nav class="navbar navbar-default" role="navigation">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="" href="#">
+                <div class="active-logo">
+                  <img src="img/logo.png" class="logo">
+                </div>
+              </a>
+            </div>
+            <div class="promo-offer">
+              <h4>Early birds 35% bonus ends in:</h4>
+              <h4 id="timer-countdown"></h4>
+            </div>
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+              <form method="post" id="logoutForm" action="#">
+                <ul class="nav navbar-nav" style="position: relative;right: 40px;top: 24px;">
+                  <li>
+                    <a title="Manage" href="Profile-Settings.html">Profile settings</a>
+                  </li>
+                  <li>
+                    <a href="#">Log out</a>
+                  </li>
+                </ul>
+                </form>
+              <ul id="menu-main-menu" class="nav navbar-nav">
+                <li @*class="active" *@> <a title="Manage" href="index.html">Buy Tokens</a> </li>
+                <li @*class="active" *@> <a title="Transactions" href="Transactions.html">Transactions</a> </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <section id="main-content">
+    <div class="container">
+      <div class="content-container">
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="tabs-nav">
+              <a href="#" class="active"><span>1</span>Payment methods</a>
+              <a href="#"><span>2</span>Transaction details</a>
+            </div>
+          </div>
+        </div>
+        <div class="content payment-steps">
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="currency-rates">
+                <div><span class="black">1 MRC =</span><span>$1.03</span><span>&#8364;0.86</span><span>0.000070 BTC</span><span>0.0010 ETH</span></div>
+                <div>The averages are valid as of now and are shown for reference only</div>
+              </div>
+              <div class="payment-form">
+                <h2>Payment method and price calculator</h2>
+                <div class="payment-select">
+                  <h4>Select preferred payment method</h4>
+                  <div>
+                    <form id="refresh" method="post" action="#">
+                      <div class="payment-methods">
+                        <label class="active">
+                        <input id="method-0-0" type="radio" name="Currency" value="BTC" checked data-val="true" data-val-required="The Currency field is required." />BTC
+                        </label>
+                        <label>
+                        <input id="method-0-1" type="radio" name="Currency" value="ETH">ETH
+                        </label>
+                      </div>
+                      <div class="calculator">
+                        <div class="ib">
+                          <div class="label">Sum to Spend, <span class="price__label-currency">BTC</span></div>
+                          <input name="FundingSum" value="" type="number" min="0" step="any" required class="OnChange1" data-val="true" data-val-number="The field FundingSum must be a number." id="FundingSum">
+                        </div>
+                        <span class="operator">=</span>
+                        <div class="ib">
+                          <div class="label">Amount of MRC to buy</div>
+                          <input name="TokenAmmount" value="" type="number" min="1" step="1" required class="OnChange2" data-val="true" data-val-number="The field TokenAmmount must be a number." id="TokenAmmount">
+                        </div>
+                        <div class="table">
+                          <div class="row discount-row">
+                            <div class="col-xs-6 text-left">
+                              <span></span><span class="bonus-token">35</span><span>%</span> bonus
+                            </div>
+                            <div class="col-xs-3 text-right value-discount">
+                              0.00
+                            </div>
+                            <div class="col-xs-3 text-right">
+                              MRC
+                            </div>
+                          </div>
+                          <div class="row final-row">
+                            <div class="col-xs-6 text-left">
+                              Final MRC amount
+                            </div>
+                            <div class="col-xs-3 text-right final-amount">
+                              0.00
+                            </div>
+                            <div class="col-xs-3 text-right">
+                              MRC
+                            </div>
+                          </div>
+                          <div class="row final-row">
+                            <div class="col-xs-6 text-left">
+                              Final price
+                            </div>
+                            <div class="col-xs-3 text-right final-price">
+                              0.00
+                            </div>
+                            <div class="col-xs-3 text-right price__label-currency">
+                              BTC
+                            </div>
+                          </div>
+                          <div class="row">
+                            <button id="form-buttom" type="submit" class="hide"></button>
+                            <a href="#" onclick="" class="btn-pay"><span class="text">Buy <strong><span class="amount-tok">0</span> MRC</strong> for <strong><span class="price__label-currency">BTC</span> <span class="final-price">0.00</span></strong></span><span class="pay">Pay<i class="fa fa-caret-right" aria-hidden="true"></i></span></a>
+                          </div>
+                        </div>
+                      </div></form>
+                  </div>
+                </div>
+                <div class="payment-amounts"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer>
+    <div class="container">
+      <div class="content-container">
+        <h3>Contact us 24/7</h3>
+        <div class="footer-links">
+          <a href="#" target="_blank"><span><i class="fa fa-telegram" aria-hidden="true"></i></span>Telegram</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script type="text/javascript">
+    countdown.setLabels(
+      '| sec| min| hrs| d',
+      '| sec| min| hrs| d',
+      ' ',
+      ' ',
+      ' ');
+    var countdownDate = new Date(Date.UTC(2018, 00, 12, 14));
+    var timerId =
+      countdown(
+        countdownDate,
+        function(ts) {
+          if (countdownDate <= new Date()) {
+            document.getElementById('timer-countdown').innerHTML = "0 sec";
+            window.clearInterval(timerId);
+          } else {
+            document.getElementById('timer-countdown').innerHTML = ts.toHTML();
+          }
+        },
+        countdown.DAYS | countdown.HOURS | countdown.MINUTES | countdown.SECONDS);
+  </script>
+</body>
+</html>
+<?php
+
+
+?>
