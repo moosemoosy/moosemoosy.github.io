@@ -399,8 +399,8 @@ input:-webkit-autofill:focus {
 }
 
 .screen-slider .item {
-    background: url('images/mobile2.png') no-repeat scroll center center / auto 100%;
-    padding: 56px 22px;
+    background: url('images/ipad2.png') no-repeat scroll center center / auto 100%;
+    padding: 40px 90px;
     display: inline-block;
     margin: auto;
 }
@@ -981,3 +981,31 @@ preloader
         opacity: 0;
     }
 }
+
+
+
+
+ /* Modal Css */ 
+.modal.fade{
+  opacity:1;
+}
+.modal.fade .modal-dialog {
+   -webkit-transform: translate(0);
+   -moz-transform: translate(0);
+   transform: translate(0);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

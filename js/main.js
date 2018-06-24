@@ -201,3 +201,18 @@
         $('.preloader').fadeOut(500);
     });
 })(jQuery);
+
+// Modal Js
+function testAnim(x) {
+    $('.modal .modal-dialog').attr('class', 'modal-dialog  ' + x + '  animated');
+};
+$('#myModal').on('show.bs.modal', function (e) {
+  //var anim = $('#entrance').val();
+  var anim = 'wobble';
+      testAnim(anim);
+})
+$('#myModal').on('hide.bs.modal', function (e) {
+  //var anim = $('#exit').val();
+  var anim = 'rubberBand';
+      testAnim(anim);
+})
